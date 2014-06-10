@@ -42,7 +42,7 @@ distribution will make it easier to port and tidy them up.
 INSTALLATION
 ------------
 
-0.) Download the image [3]
+0.) Download the image [3] and uncompress it with unxz(1)
 1.) Use dd(1) to copy the image to SD memory card
 2.) Boot your Raspberry Pi from the card
 3.) Log in as root
