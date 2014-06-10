@@ -34,6 +34,8 @@ raspberrypi-vc-firmware
 # Not strictly needed, but useful: Out boot is a msdos filesystem and this
 # is useful for automated systemd-triggered check
 dosfstools
+# The device has no RTC
+chrony
 %end
 
 %post
