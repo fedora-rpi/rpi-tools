@@ -15,6 +15,8 @@ Raspberry Pi distributions, such as Raspbian [1] and Pidora [2].
 It is largely based on Fedora source packages, whereas most binary builds
 (apart from kernel and boot loader) come from Pidora.
 
+Packages with stable and development (Rawhide) kernel are available.
+
 WHY
 ---
 
@@ -76,6 +78,9 @@ on the first (BOOT) partition to enable serial console.
 
 As the device has no non-volatile memory, the Ethernet device MAC address
 changes on each boot.
+
+The vanilla image contains a stable kernel image. To install the Rawhide one,
+run "yum --enablerepo=fedora-rpi-devel update kernel".
 
 SOURCE
 ------
