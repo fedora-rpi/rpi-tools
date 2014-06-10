@@ -1,0 +1,83 @@
+Fedora Remix for Raspberry Pi
+with mainline kernel & U-Boot
+=============================
+
+WHAT
+----
+
+This is a Linux distribution for Raspberry Pi devices with kernel that
+is not as significantly deviant from mainline as is the case for popular
+Raspberry Pi distributions, such as Raspbian [1] and Pidora [2].
+
+[1] http://www.raspbian.org/
+[2] http://pidora.ca/
+
+It is largely based on Fedora source packages, whereas most binary builds
+(apart from kernel and boot loader) come from Pidora.
+
+WHY
+---
+
+While the Raspberry Pi branch of the kernel ships currently provides
+significantly better hardware support, it comes at the expense of quality,
+security and sanity in general. On the other hand, code merged into
+mainline kernel receives significant amount of code and design reviews,
+resulting in robust, secure and portable designs. The downside is that it
+takes time and effort.
+
+The kernel package provided here is based on Fedora one, and follows the
+estabilished practices wherever feasible:
+
+* A lot of general purpose drivers and subsystems are enabled
+  (Most devices connectable to USB are supported, SELinux, ...)
+* The kernel is multi-platform (though Raspberry Pi is the only
+  platform enabled) and Device Tree is used to configure it
+* U-Boot with extlinux configuration is used to boot the kernel
+
+Subsystems with questionable or plainly wrong security in Raspberry Pi
+kernel (such as raw access to the mbox or VCHIQ) are not present, resulting
+in somewhat limited hardware support. Hopefully, the ready-to-use
+distribution will make it easier to port and tidy them up.
+
+INSTALLATION
+------------
+
+0.) Download the image [3]
+1.) Use dd(1) to copy the image to SD memory card
+2.) Boot your Raspberry Pi from the card
+3.) Log in as root
+4.) Set the root password with passwd(1) command
+5.) Resize the root volume to your memory card's size with resize2fs(8):
+    "resize2fs /dev/mmcblk0p2"
+
+[3] http://fedorapeople.org/~lkundrak/rpi-images/
+
+HARDWARE SUPPORT
+----------------
+
+Serial console, framebuffer, MMC and USB (and thus Ethernet) are known to
+work.
+
+NOTES
+-----
+
+This is not an official Fedora distribution image. It uses Generic branding
+(logos, banners) instead of Fedora. It's merely largely based on Fedora
+sources -- most of the binaries come from Pidora.
+
+SELinux is disabled in present release, until a reason for frequent mmap_zero
+denials is discovered and the issue is fixed.
+
+Add console=ttyAMA0,115200 to kernel command line in extlinux/extlinux.conf
+on the first (BOOT) partition to enable serial console.
+
+SOURCE
+------
+
+Packages and tools used to build the image are available from the Git
+repositories [4].
+
+[4] https://github.com/fedora-rpi
+
+--
+Lubomir Rintel <lkundrak@v3.sk>
