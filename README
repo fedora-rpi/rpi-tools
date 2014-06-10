@@ -65,6 +65,9 @@ This is not an official Fedora distribution image. It uses Generic branding
 (logos, banners) instead of Fedora. It's merely largely based on Fedora
 sources -- most of the binaries come from Pidora.
 
+The package collection is fairly minimal -- it's basically the @Core group.
+If you need anything else, add it with yum(8).
+
 SELinux is disabled in present release, until a reason for frequent mmap_zero
 denials is discovered and the issue is fixed.
 
