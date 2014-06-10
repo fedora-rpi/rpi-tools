@@ -74,6 +74,9 @@ denials is discovered and the issue is fixed.
 Add console=ttyAMA0,115200 to kernel command line in extlinux/extlinux.conf
 on the first (BOOT) partition to enable serial console.
 
+As the device has no non-volatile memory, the Ethernet device MAC address
+changes on each boot.
+
 SOURCE
 ------
 
