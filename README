@@ -73,8 +73,9 @@ If you need anything else, add it with yum(8).
 SELinux is disabled in present release, until a reason for frequent mmap_zero
 denials is discovered and the issue is fixed.
 
-Add console=ttyAMA0,115200 to kernel command line in extlinux/extlinux.conf
-on the first (BOOT) partition to enable serial console.
+Add console=ttyAMA0 to kernel command line in extlinux/extlinux.conf on the
+first (BOOT) partition to enable serial console. Both U-Boot and kernel use
+115200 baud, 8 data bits, 1 stop bit, no parity by default.
 
 As the device has no non-volatile memory, the Ethernet device MAC address
 changes on each boot.
